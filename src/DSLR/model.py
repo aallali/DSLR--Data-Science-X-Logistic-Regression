@@ -50,12 +50,13 @@ class LogisticRegressionOVR:
             y_copy = np.where(y == i, 1, 0)
             w = np.ones(X.shape[1])
             for _ in range(self.n_iter):
-                index.append(_)
                 output = X.dot(w)
                 sig = self._sigmoid(output)
                 errors = y_copy - sig
-                cost.append(abs(errors.mean()))
-                gradient = np.dot(X.T, errors)
+                if self.v == True:
+                    index.append(_)
+                    cost.append(abs(errors.mean()))
+                gradient = np.dot(X.T, errors) / X.shape[1]
                 w += self.eta * gradient
                 if ((_ * 100) / self.n_iter) % 10 == 0:
                     print(f'training progress {"{:.2f}".format((_ * 100) / self.n_iter)}%', end='\r')
@@ -76,8 +77,8 @@ class LogisticRegressionOVR:
                     yy = 1
                 axs[xx, yy].set_title(i)
                 axs[xx, yy].plot(index, cost, 'b-')
-            cost = []
-            index = []
+                cost = []
+                index = []
         if self.v == True:
             plt.show()
 
