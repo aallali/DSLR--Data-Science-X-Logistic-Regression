@@ -23,9 +23,9 @@ def load_csv(filename):
     return np.array(dataset, dtype=object)
 
 
-def read_file():
+def read_file(filname):
     try:
-        data = pd.read_csv(sys.argv[1])
+        data = pd.read_csv(filname)
     except:
         sys.exit("File doesn't exist")
     data = data.drop(['First Name', 'Last Name', 'Birthday', 'Index'], axis=1)

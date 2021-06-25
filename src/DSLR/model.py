@@ -18,11 +18,11 @@ class LogisticRegressionOVR:
         return X
 
     def _processing(self, hptrain, pred=True):
+
+        hptrain = hptrain.drop(['Astronomy', 'Care of Magical Creatures', 'Charms'], axis=1)
         if pred == False:
-            hptrain['Best Hand'] = hptrain['Best Hand'].map({'Right': 0, 'Left': 1})
-            hptrain = hptrain.drop(['Astronomy', 'Care of Magical Creatures', 'Charms'], axis=1)
-            hptrain = hptrain.dropna()
-            hp_features = np.array((hptrain.iloc[:, 4:]))
+
+            hp_features = np.array((hptrain.iloc[:, 1:]))
             hp_labels = np.array(hptrain.loc[:, "Hogwarts House"])
             np.apply_along_axis(self._scaling, 0, hp_features)
             hp_features = np.insert(hp_features, 0, 1, axis=1)
@@ -30,25 +30,10 @@ class LogisticRegressionOVR:
             self.y = hp_labels
             return hp_features, hp_labels
         else:
-            hptrain['Best Hand'] = hptrain['Best Hand'].map({'Right': 0, 'Left': 1})
-            hptrain = hptrain.drop(['Astronomy', 'Care of Magical Creatures', 'Charms'], axis=1)
-
-            hptrain = hptrain.iloc[:, 4:]
-            hptrain['Flying'] = hptrain['Flying'].fillna(22.0060)
-            hptrain['Potions'] = hptrain['Potions'].fillna(5.9529)
-            hptrain['Transfiguration'] = hptrain['Transfiguration'].fillna(1030.0939)
-            hptrain['History of Magic'] = hptrain['History of Magic'].fillna(2.9604)
-            hptrain['Ancient Runes'] = hptrain['Ancient Runes'].fillna(495.8477)
-            hptrain['Muggle Studies'] = hptrain['Muggle Studies'].fillna(224.5838)
-            hptrain['Divination'] = hptrain['Divination'].fillna(3.1517)
-            hptrain['Arithmancy'] = hptrain['Arithmancy'].fillna(49635.2064)
-
-            hptrain = hptrain.fillna(1)
-
+            hptrain = hptrain.iloc[:, 1:]
             hp_features = np.array(hptrain)
             np.apply_along_axis(self._scaling, 0, hp_features)
             hp_features = np.insert(hp_features, 0, 1, axis=1)
-
             self.X = hp_features
             return hp_features, None
 

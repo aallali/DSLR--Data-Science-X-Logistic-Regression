@@ -1,20 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import sys
-
-
-def read_file():
-    try:
-        data = pd.read_csv(sys.argv[1])
-    except:
-        sys.exit("File doesn't exist")
-    data = data.drop(['First Name', 'Last Name', 'Birthday', 'Index'], axis=1)
-    data['Best Hand'] = data['Best Hand'].map({'Right': 0, 'Left': 1})
-    for key in data:
-        if (key != "Hogwarts House"):
-            data.fillna(value={key: data[key].mean()}, inplace=True)
-    return (data)
-
+from DSLR.utils import read_file
+import argparse
 
 def split_data_by_house(data, key):
     frst_h = []
@@ -67,12 +54,15 @@ def show_most_homogenous_feat(data):
 
 
 def main():
-    if (len(sys.argv) <= 1):
-        sys.exit("No name file")
-    if (len(sys.argv) >= 3):
-        sys.exit("too much file")
-    data = read_file()
-    # show_histogramme(data)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file',
+                        help="datasets to train")
+    parser.add_argument('-all', action='store_true',
+                        help="plot all histograms ", default=False)
+    args = parser.parse_args()
+    data = read_file(args.file)
+    if args.all == True:
+        show_histogramme(data)
     show_most_homogenous_feat(data)
 
 
