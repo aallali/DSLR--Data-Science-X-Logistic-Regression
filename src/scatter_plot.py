@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    scatter_plot.py                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aallali <hi@allali.me>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/26 12:49:24 by aallali           #+#    #+#              #
+#    Updated: 2021/06/26 12:50:42 by aallali          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 from DSLR.utils import load_csv
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,8 +17,10 @@ import matplotlib.pyplot as plt
 
 def scatter_plot(X, y, legend, xlabel, ylabel):
     plt.scatter(X[:327], y[:327], color='red', alpha=0.5)  # Grynffindor House
-    plt.scatter(X[327:856], y[327:856], color='yellow', alpha=0.5)  # Hufflepuff House
-    plt.scatter(X[856:1299], y[856:1299], color='blue', alpha=0.5)  # Ravenclaw House
+    plt.scatter(X[327:856], y[327:856], color='yellow', alpha=0.5)  
+    # Hufflepuff House
+    plt.scatter(X[856:1299], y[856:1299], color='blue', alpha=0.5)  
+    # Ravenclaw House
     plt.scatter(X[1299:], y[1299:], color='green', alpha=0.5)  # Slytherin House
 
     plt.legend(legend, loc='upper right', frameon=False)

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    describe.py                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aallali <hi@allali.me>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/26 12:49:02 by aallali           #+#    #+#              #
+#    Updated: 2021/06/26 12:49:06 by aallali          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 from DSLR.maths import count_, mean_, std_, min_, percentile_, max_
 from DSLR.utils import load_csv
 import numpy as np
