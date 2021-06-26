@@ -99,7 +99,7 @@ Training against : Hufflepuff
 Training against : Ravenclaw
 Training against : Slytherin
 Weights saved in 'weights.npy',
-Accuracy : 97.81 %
+Accuracy : 98.49 %
 ```
 
 This will save the weights trained in `./weights.npy`
