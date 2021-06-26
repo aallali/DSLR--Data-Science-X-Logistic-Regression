@@ -11,19 +11,16 @@ This is the second project of the Artificial Intelligence branch at School 1337 
 #### Feature Scaling:
 
 <img src="docs/Formula_1.svg"/>
-#####
-<img src="docs/Formula_2.svg"/>
-#####
+
 <img src="docs/Formula_2.svg"/>
 
-####Logistic Regression:
+<img src="docs/Formula_2.svg"/>
+
+#### Logistic Regression:
 
 <img src="./docs/Formula_3.svg"/>
-#####
 <img src="./docs/Formula_4.svg"/>
-#####
 <img src="./docs/Formula_5.svg"/>
-#####
 <img src="./docs/Formula_6.svg"/>
 
 ## Installation
