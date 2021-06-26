@@ -17,4 +17,4 @@ if __name__ == "__main__":
     logreg = LogisticRegressionOVR(data=hptrain, v=args.v, n_iter=args.n, prediction=False)
     weights = logreg.fit()
     np.save("weights", weights)
-    print(f"Weights saved in 'weights.npy',\naccuracy : {'{:.2f}'.format(logreg.score() * 100)} %")
+    print(f" Weights saved in 'weights.npy',\n Accuracy : {'{:.2f}'.format(logreg.score() * 100)} %")
