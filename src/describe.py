@@ -29,6 +29,7 @@ def describe(filename):
             data = data[~np.isnan(data)]
             if not data.any():
                 raise Exception()
+
             print(f'{count_(data):>12.4f}', end=' |')
             print(f'{mean_(data):>12.4f}', end=' |')
             print(f'{std_(data):>12.4f}', end=' |')
